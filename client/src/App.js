@@ -11,6 +11,7 @@ import NavBar from './components/shared/AppNavbar';
 import Home from './components/home';
 import About from './components/about';
 import Contact from './components/contact';
+import Workout from './components/workout';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
             <Route path='/contact' component={Contact} />
+            <Route path='/:id' component={Workout} />
           </Switch>
         </div>
       </BrowserRouter>
