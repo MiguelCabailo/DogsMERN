@@ -1,0 +1,21 @@
+{
+  "name": "exercise-app",
+  "version": "1.0.0",
+  "description": "Exercise App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
+  },
+  "author": "Miguel Cabailo",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.13"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1"
+  }
+}
