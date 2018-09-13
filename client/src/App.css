@@ -1,0 +1,26 @@
+body header{
+    
+    background-image: url(../src/assets/images/puppy.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 800px;
+    max-height: 800px;
+    
+}
+
+
+@media screen and (max-width:670px) {
+    body header {
+      min-height: 500px
+    }
+}
+
+header .side-nav {
+  width: 100px;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+header .side-nav a {
+    color: white !important;
+}
