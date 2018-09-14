@@ -1,43 +1,68 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import uuid from 'uuid';
 
-import { Parallax } from 'react-materialize';
+import { CardPanel, Icon } from 'react-materialize';
 
+
+import PuppyPoster from '../assets/images/puppy.jpg';
 class Home extends Component {
     state = {
-        posts: []
+        dogs: [
+            { id: uuid(), breed: 'whippet', color: 'white', age: 5 },
+            { id: uuid(), breed: 'jack russel', color: 'white', age: 2 },
+            { id: uuid(), breed: 'snowzer', color: 'black', age: 3},
+            { id: uuid(), breed: 'bulldog', color: 'grey', age: 1}
+        ]
     }
+    
+    deleteItem = (id)=>{
+        console.log(id);
 
-    componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
-            .then(res => {
-                this.setState({
-                    posts: res.data.slice(0, 10)
-                })
-            });
+        let deleteDog = this.state.dogs.filter(dog=>(
+            dog.id !== id
+        ))
+          
+
+        this.setState({
+            dogs : deleteDog
+            
+        })
     }
 
     render() {
-        console.log(this.props);
-        console.log(this.state);
 
-        const { posts } = this.state;
-        const listPosts = posts.length ? (
-            posts.map(post => (
-                <div key={post.id}>
-                    <h4>{post.title}</h4>
-                    <p>{post.body}</p>
-                    <hr />
+
+        let { dogs } = this.state;
+        let dogList = dogs.length ? (
+            dogs.map(dog => (
+                <div className="col s12 l3" key={dog.id}>
+                    <CardPanel className="container z-depth-2">
+                        <ul width="100%">
+                            <li>
+                                Breed: {dog.breed} 
+                                <button 
+                                    className="btn-floating right btn waves-effect light-blue lighten-2"
+                                    onClick={()=>this.deleteItem(dog.id)}
+                                ><Icon>delete</Icon></button>
+                            </li>
+                            <li>Color: {dog.color}</li>
+                            <li>Age: {dog.age}</li>
+                        </ul>
+                    </CardPanel>
                 </div>
+                
             ))
         ) : (
-                <p>No posts to show </p>
+                <p>No dogs in the list</p>
             )
 
         return (
-            <div>
-                {listPosts}
-            </div>
+            <section className="homeComponent">
+                <img className="responsive poster" src={PuppyPoster} alt="puppy" />
+                <div className="container row content">
+                    {dogList}
+                </div>
+            </section>
         )
     }
 }

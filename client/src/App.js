@@ -8,10 +8,10 @@ import './App.css';
 */
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NavBar from './components/shared/AppNavbar';
-import Home from './components/home';
-import About from './components/about';
-import Contact from './components/contact';
-import Workout from './components/workout';
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import Workout from './components/Workout';
 
 class App extends Component {
   render() {

@@ -4,9 +4,9 @@ const Contact = (props)=>{
     console.log(props);
 
     return (
-        <div>
+        <section>
             <h1>This is Contact!</h1>
-        </div>
+        </section>
     )
 
 }
