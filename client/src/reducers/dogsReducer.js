@@ -3,10 +3,10 @@ import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from '../actions/type
 
 const initState = {
     dogs: [
-        { id: uuid(), breed: 'whippet', color: 'white', age: 6 },
-        { id: uuid(), breed: 'jack russel', color: 'white', age: 2 },
-        { id: uuid(), breed: 'snowzer', color: 'black', age: 3 },
-        { id: uuid(), breed: 'bulldog', color: 'grey', age: 1 }
+        { id: uuid(), breed: 'Whippet', color: 'white', age: 6 },
+        { id: uuid(), breed: 'Jack Russel', color: 'white', age: 2 },
+        { id: uuid(), breed: 'Snowzer', color: 'black', age: 3 },
+        { id: uuid(), breed: 'Bulldog', color: 'grey', age: 1 }
     ]
 }
 
