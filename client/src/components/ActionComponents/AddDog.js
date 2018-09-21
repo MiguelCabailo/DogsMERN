@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import uuid from 'uuid';
 
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { addItem } from '../../actions/dogsActions'

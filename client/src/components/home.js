@@ -7,7 +7,7 @@ import { CardPanel, Icon } from 'react-materialize';
 
 
 import AddDog from './ActionComponents/AddDog';
-import { deleteItem } from '../actions/dogsActions';
+import { getItems, deleteItem } from '../actions/dogsActions';
 
 
 
@@ -19,24 +19,25 @@ class Home extends Component {
     }
 
     componentDidMount(){
-        this.props.getItems;
+        this.props.getItems();
     }
 
     render() {
+     
         console.log(this.props);
         let { dogs } = this.props;
         let dogList = dogs ? (
             dogs.map(dog => (
                 //return dogs that are younger that 5 only
                 dog.age < 5 ? (
-                    <div className="col s12 l5 offset-l1" key={dog.id}>
+                    <div className="col s12 l5 offset-l1" key={dog._id}>
                         <CardPanel className="container z-depth-2">
                             <ul width="100%">
                                 <li>
-                                    <Link to={'/' + dog.id} >Breed: {dog.breed}</Link>
+                                    <Link to={'/' + dog._id} >Breed: {dog.breed}</Link>
                                     <button
                                         className="btn-floating right btn waves-effect light-blue lighten-2"
-                                        onClick={() => this.deleteItem(dog.id)}
+                                        onClick={() => this.deleteItem(dog._id)}
                                     ><Icon>delete</Icon></button>
                                 </li>
                                 <li>Color: {dog.color}</li>
@@ -49,25 +50,14 @@ class Home extends Component {
         ) : (
                 <p>No dogs in the list</p>
             )
-
-        /*
+            
         return (
-            <section className="homeComponent">
-                <img className="responsive poster" src={PuppyPoster} alt="puppy" />
-                <AddDog addItem={this.addItem}/>
-                <div className="container row content">
-                    {dogList}
-                </div>
-            </section>
-        )
-    */
-
-        return (
+            
             <section className="homeComponent">
                 <img className="responsive poster" src={PuppyPoster} alt="puppy" />
                 <AddDog/>
                 <div className="container row content">
-                    {dogList}
+                   {dogList}
                 </div>
             </section>
         )
@@ -87,6 +77,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch)=>{
     return {
+        getItems : ()=>{ dispatch(getItems()) },
         deleteItem : (id)=>{ dispatch(deleteItem(id))}
     }
 }

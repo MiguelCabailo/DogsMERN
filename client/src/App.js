@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+
+
 import './App.css';
 
 /*
@@ -15,7 +17,6 @@ import store from './store'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NavBar from './components/shared/AppNavbar';
 import Home from './components/Home';
-import AddDog from './components/ActionComponents/AddDog'
 import About from './components/About';
 import Contact from './components/Contact';
 import Post from './components/Post';
