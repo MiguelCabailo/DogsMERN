@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const workouts = require('./routes/api/workouts');
+const dogsApi = require('./routes/api/dogs-api');
 
 // run express
 const app = express();
@@ -19,7 +19,7 @@ mongoose
     .then(()=> console.log('MongoDB Connected'))
     .catch(err => console.log(err));
 
-app.use('/api/workouts', workouts);
+app.use('/api/dogs-api', dogsApi);
 
 // set port 5000 or process.env.PORT for Heroku
 const port = process.env.PORT || 5000;
