@@ -10,14 +10,11 @@ const initState = {
 const dogsReducer = (state = initState, action) => {
     switch (action.type) {
         case GET_ITEMS:
-            console.log("in GET_ITEMS");
             return {
                 ...state,
                 dogs : action.payload
             }
         case ADD_ITEM:
-            console.log(action);
-
             let item = action.payload
             item.id = uuid();
             return {
@@ -25,7 +22,6 @@ const dogsReducer = (state = initState, action) => {
                 dogs : [...state.dogs, item]             
             }
         case DELETE_ITEM:
-            console.log(action);
             let newDogList = state.dogs.filter(dog => {
                 return dog._id !== action.payload
             })

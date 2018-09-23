@@ -6,7 +6,6 @@ import { addItem } from '../../actions/dogsActions'
 
 class AddDog extends Component {
     state = {
-        id: '',
         breed : '',
         color: '',
         age: ''
@@ -22,8 +21,13 @@ class AddDog extends Component {
     handleSubmit = e => {
 
         e.preventDefault();
-
         this.props.addItem(this.state);
+
+        this.setState({
+            breed : '',
+            color: '',
+            age: ''
+        })
     }
 
     render() {

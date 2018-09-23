@@ -10,6 +10,7 @@ app.use(express.json());
 
 app.use(express.static('client'));
 
+
 // keys from the config file
 const db = require('./config/keys').mongoURI;
 

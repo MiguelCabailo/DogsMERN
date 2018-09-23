@@ -18,7 +18,6 @@ export const getItems = () => dispatch => {
     axios
         .get('/api/dogs-api')
         .then(res => {
-            console.log(res);
             dispatch({
                 type: GET_ITEMS,
                 payload: res.data
@@ -26,18 +25,22 @@ export const getItems = () => dispatch => {
         })
 }
 
-export const addItem = (item)=>{
- 
+export const addItem = (item)=> (dispatch) => {
+    axios
+        .post('/api/dogs-api', item)
+        .then(res=>{
+            console.log(res.data._id);
 
-    return {
-        type: ADD_ITEM,
-        payload : item
-    }
+            // give it a unique key
+            item._id = res.data._id;
+            dispatch({
+                type: ADD_ITEM,
+                payload : item
+            })
+        })
 }
 
-export const deleteItem = (id) => (dispatch)=>{
-
-    
+export const deleteItem = (id) => (dispatch)=>{   
     axios
         .delete('/api/dogs-api/' + id)
         .then((res)=>{

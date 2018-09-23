@@ -23,8 +23,6 @@ class Home extends Component {
     }
 
     render() {
-     
-        console.log(this.props);
         let { dogs } = this.props;
         let dogList = dogs ? (
             dogs.map(dog => (

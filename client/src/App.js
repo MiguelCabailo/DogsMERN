@@ -36,7 +36,6 @@ class App extends Component {
     id: ''
   }
 
-
   render() {
     return (
       <Provider store={store}>

@@ -17,6 +17,6 @@ const composingMiddlewareAndDevTools = composeEnhancers(applyMiddleware(...middl
 // should pass the empty initial state
 const store = createStore(rootReducer, initialState, composingMiddlewareAndDevTools);
 
-console.log(store.getState());
+//console.log(store.getState());
 
 export default store;
