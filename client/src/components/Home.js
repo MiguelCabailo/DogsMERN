@@ -11,7 +11,7 @@ import { getItems, deleteItem } from '../actions/dogsActions';
 
 
 
-import PuppyPoster from '../assets/images/puppy2.jpg';
+import PuppyPoster from '../assets/images/puppy2.jpeg';
 class Home extends Component {
 
     deleteItem = (id) => {
