@@ -1,24 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { CardPanel, Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
 
-/*
-    File Imports
-*/
-import AddDog from '../ActionComponents/AddDog';
-import ShowDogList from '../ActionComponents/ShowDogList';
+import { CardPanel, Icon } from 'react-materialize';
+
+
 import { getItems } from '../../actions/dogsActions'
 
 
-class Profile extends Component {
+class ShowDogList extends Component {
+    
+    componentDidMount(){
+        this.props.getItems();
 
-componentDidMount(){
-    this.props.getItems();
-
-}
+    }
     render() {
-        /*
         console.log(this.props.dogs);
         let { dogs } = this.props;
         let dogList = dogs ? (
@@ -44,14 +40,11 @@ componentDidMount(){
         ) : (
             <p>No dogs in list</p>
         )
-        */
 
 
         return(
             <div className="container row">
-                <h1>This is the Profile Page</h1>
-                <AddDog/>
-                <ShowDogList/>
+                {dogList}
             </div> 
         )       
     }
@@ -75,4 +68,4 @@ const mapDispatchToProps = (dispatch)=>{
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Profile)
+export default connect(mapStateToProps,mapDispatchToProps)(ShowDogList)
