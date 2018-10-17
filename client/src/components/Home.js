@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 
 import { CardPanel, Icon } from 'react-materialize';
 
-
-import AddDog from './ActionComponents/AddDog';
 import { getItems, deleteItem } from '../actions/dogsActions';
 
 
@@ -20,6 +18,7 @@ class Home extends Component {
 
     componentDidMount(){
         this.props.getItems();
+        console.log(this.props);
     }
 
     render() {
@@ -53,7 +52,6 @@ class Home extends Component {
             
             <section className="homeComponent">
                 <img className="responsive poster" src={PuppyPoster} alt="puppy" />
-                <AddDog/>
                 <div className="container row content">
                    {dogList}
                 </div>

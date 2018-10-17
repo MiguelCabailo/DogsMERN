@@ -11,7 +11,8 @@ class Post extends Component {
     }
 
     handleDelete = (id)=>{
-        this.props.deletePost(id)
+        this.props.deletePost(id);
+        this.redirectToHome();
     }
 
     componentDidMount() {
@@ -28,7 +29,7 @@ class Post extends Component {
                                 <h4>Breed: {this.props.dog.breed}</h4>
                                 <button
                                     className="btn-floating right btn waves-effect light-blue lighten-2"
-                                    onClick={() => this.handleDelete(this.props.dog.id)}
+                                    onClick={() => this.handleDelete(this.props.dog._id)}
                                 ><Icon>delete</Icon></button>
                             </li>
                             <li>Color: {this.props.dog.color}</li>
@@ -50,7 +51,7 @@ class Post extends Component {
 // Parameters = reduxState/ownState
 const mapStateToProps = (state, ownProps) => {
     // find this on the props of this component
-    let id = ownProps.match.params.id;
+    let id = ownProps.match.params._id;
 
     return {
         dog: state.dogsReducer.dogs.find(dog => dog.id === id)

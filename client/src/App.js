@@ -20,6 +20,10 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import Post from './components/Post';
+import Login from './components/Login';
+import Logout from './components/Logout';
+import Profile from './components/Profile/Profile';
+
 
 
 
@@ -48,7 +52,10 @@ class App extends Component {
               <Route exact path='/' component={(props) => <Home {...props} />} />
               <Route path='/about' component={About} />
               <Route path='/contact' component={Contact} />
-              <Route path='/:id' component={(props) => <Post {...props} />} />
+              <Route path='/login' component={Login}/>
+              <Route path='/logout' component={Logout}/>
+              <Route path='/profile' component={Profile}/>
+              <Route exact path='/:id' component={(props) => <Post {...props} />} />
             </Switch>
           </div>
         </BrowserRouter>
