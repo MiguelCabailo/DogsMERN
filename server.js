@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dogsApi = require('./routes/api/dogs-api');
+const uploadsApi = require('./routes/api/uploads-api');
 
 // run express
 const app = express();
@@ -23,6 +24,7 @@ mongoose
 
 
 app.use('/api/dogs-api', dogsApi);
+app.use('/api/uploads-api', uploadsApi);
 
 // set port 5000 or process.env.PORT for Heroku
 const port = process.env.PORT || 5000;
